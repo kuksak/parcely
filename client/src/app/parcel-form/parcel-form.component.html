@@ -1,0 +1,83 @@
+<div>
+    <div>
+        <h2>Add new parcel details</h2>
+    </div>
+</div>
+<div>
+    <div>
+        <mat-card>
+            <mat-card-content>
+                <form class="m-t-10">
+                    <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block" id="parcelSku">Parcel SKU
+                    </mat-label>
+                    <mat-form-field appearance="outline" class="w-100" color="primary">
+                        <input matInput [formControl]="parcel.parcelSku" [errorStateMatcher]="matcher" />
+                    </mat-form-field>
+                    <div *ngIf="parcel.parcelSku.hasError('minlength') && !parcel.parcelSku.hasError('required')">
+                        <mat-error class="m-b-12">Minimum 8 characters!!</mat-error>
+                    </div>
+                    <div *ngIf="parcel.parcelSku.dirty && parcel.parcelSku.hasError('required')">
+                        <mat-error class="m-b-12">Parcel SKU is <strong>required</strong></mat-error>
+                    </div>
+
+                    <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block" id="description">Description
+                    </mat-label>
+                    <mat-form-field appearance="outline" class="w-100" color="primary">
+                        <input matInput [formControl]="parcel.description" />
+                    </mat-form-field>
+
+                    <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block" id="streetAddress">Street
+                        address
+                    </mat-label>
+                    <mat-form-field appearance="outline" class="w-100" color="primary">
+                        <input matInput [formControl]="parcel.streetAddress" [errorStateMatcher]="matcher" />
+                    </mat-form-field>
+                    <div *ngIf="parcel.streetAddress.hasError('minlength') && !parcel.streetAddress.hasError('required')">
+                        <mat-error class="m-b-12">Minimum 6 characters!!</mat-error>
+                    </div>
+                    <div *ngIf="parcel.streetAddress.dirty && parcel.streetAddress.hasError('required')">
+                        <mat-error class="m-b-12">Street address is <strong>required</strong></mat-error>
+                    </div>
+
+                    <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block" id="town">Town</mat-label>
+                    <mat-form-field appearance="outline" class="w-100" color="primary">
+                        <input matInput [formControl]="parcel.town" [errorStateMatcher]="matcher" />
+                    </mat-form-field>
+                    <div *ngIf="parcel.town.hasError('minlength') && !parcel.town.hasError('required')">
+                        <mat-error class="m-b-12">Minimum 6 characters!!</mat-error>
+                    </div>
+                    <div *ngIf="parcel.town.dirty && parcel.town.hasError('required')">
+                        <mat-error class="m-b-12">Town is <strong>required</strong></mat-error>
+                    </div>
+
+                    <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block" id="country">Country</mat-label>
+                    <mat-form-field appearance="outline" class="w-100" color="primary">
+                        <mat-select [formControl]="parcel.country">
+                            @for(country of countries; track country){
+                            <mat-option [value]="country.value">{{country.value}}</mat-option>
+                            }
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block" id="deliveryDate">Delivery
+                        date
+                    </mat-label>
+                    <mat-form-field  appearance="outline" class="w-100" color="primary">
+                        <input matInput [formControl]="parcel.deliveryDate"
+                               [matDatepicker]="picker">
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                    <div *ngIf="parcel.deliveryDate.dirty && parcel.deliveryDate.hasError('required')">
+                        <mat-error class="m-b-12">Delivery date <strong>required</strong></mat-error>
+                    </div>
+
+                    <a (click)="onSubmit()" mat-flat-button color="primary" class="w-50">
+                        Save parcel details
+                    </a>
+                </form>
+
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

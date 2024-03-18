@@ -1,0 +1,22 @@
+{
+  "name": "nest-angular-template",
+  "version": "1.0.0",
+  "description": "Template project using nestjs backend and angular frontend",
+  "author": "kuksak",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "scripts": {
+    "start:client": "cd client && npm run start",
+    "start:server": "cd server && npm run start:dev",
+    "start": "concurrently \"npm run start:server\" \"npm run start:client\"",
+    "install": "cd server && yarn install && cd ../client && yarn install",
+    "test:server:e2e": "cd server && yarn test:e2e",
+    "test:client": "cd client && yarn test"
+  },
+  "dependencies": {
+    "@angular/cli": "^17.3.0"
+  }
+}

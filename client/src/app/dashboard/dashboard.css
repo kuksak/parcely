@@ -1,0 +1,39 @@
+.mat-column-id {
+    max-width: 10rem !important;
+}
+
+.mat-column-parcelSKU {
+    max-width: 8rem !important;
+}
+
+.mat-column-description {
+    max-width: 8rem !important;
+}
+
+.mat-column-streetAddress {
+    max-width: 8rem !important;
+}
+
+.mat-column-town {
+    max-width: 8rem !important;
+}
+
+.mat-column-country {
+    max-width: 8rem !important;
+}
+
+.mat-column-deliveryDate {
+    max-width: 8rem !important;
+}
+
+.mat-filter-row {
+    max-height: 3rem !important;
+}
+
+.mat-filter-row-container {
+    margin-top: 1rem;
+}
+
+.mat-mdc-form-field-bottom-align {
+    max-height: 1px !important;
+}

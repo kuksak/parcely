@@ -1,0 +1,108 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="d-flex align-items-center justify-content-between">
+                <h2 class="f-w-700">Dashboard</h2>
+            </div>
+        </div>
+    </div>
+    <div class="row m-y-8">
+        <div class="col-lg-12">
+            <mat-card class="cardWithShadow">
+                <mat-card-content>
+                    <mat-card-title>All parcels</mat-card-title>
+                    <div>
+                        <table mat-table [dataSource]="allParcels">
+                            <ng-container matColumnDef="id">
+                                <th mat-header-cell *matHeaderCellDef> Id
+                                    <div class="mat-filter-row-container">
+                                        <mat-form-field class="mat-filter-row">
+                                            <input disabled matInput type="text"  >
+                                        </mat-form-field>
+                                    </div>
+                                </th>
+                                <td mat-cell *matCellDef="let element">
+                                    <a href="/dashboard">{{element.id.slice(0,16)}}...</a>
+                                </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="parcelSKU">
+                                <th mat-header-cell *matHeaderCellDef> Parcel SKU
+                                    <div class="mat-filter-row-container">
+                                        <mat-form-field class="mat-filter-row">
+                                            <input disabled matInput type="text">
+                                        </mat-form-field>
+                                    </div>
+                                </th>
+                                <td mat-cell *matCellDef="let element"> {{element.parcelSku}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="description">
+                                <th mat-header-cell *matHeaderCellDef> Description
+                                    <div class="mat-filter-row-container">
+                                        <mat-form-field class="mat-filter-row">
+                                            <input placeholder="filter description" matInput type="text"
+                                                   [(ngModel)]="descriptionSearch"
+                                                   (keyup)="setDescription($event)">
+                                        </mat-form-field>
+                                    </div>
+                                </th>
+                                <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="streetAddress">
+                                <th mat-header-cell *matHeaderCellDef> Street address
+                                    <div class="mat-filter-row-container">
+                                        <mat-form-field class="mat-filter-row">
+                                            <input disabled matInput type="text">
+                                        </mat-form-field>
+                                    </div>
+                                </th>
+                                <td mat-cell *matCellDef="let element"> {{element.streetAddress}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="town">
+                                <th mat-header-cell *matHeaderCellDef> Town
+                                    <div class="mat-filter-row-container">
+                                        <mat-form-field class="mat-filter-row">
+                                            <input disabled matInput type="text">
+                                        </mat-form-field>
+                                    </div>
+                                </th>
+                                <td mat-cell *matCellDef="let element"> {{element.town}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="country">
+                                <th mat-header-cell *matHeaderCellDef> Country
+                                    <div class="mat-filter-row-container">
+                                        <mat-form-field class="mat-filter-row">
+                                            <input placeholder="filter country" matInput type="text"
+                                                   [(ngModel)]="countrySearch"
+                                                   (keyup)="setCountry($event)">
+                                        </mat-form-field>
+                                    </div>
+                                </th>
+                                <td mat-cell *matCellDef="let element"> {{element.country}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="deliveryDate">
+                                <th mat-header-cell *matHeaderCellDef> Delivery date
+                                    <div class="mat-filter-row-container">
+                                        <mat-form-field class="mat-filter-row">
+                                            <input disabled matInput type="text">
+                                        </mat-form-field>
+                                    </div>
+                                </th>
+                                <td mat-cell *matCellDef="let element"> {{element.deliveryDate}} </td>
+                            </ng-container>
+
+                            <tr mat-header-row *matHeaderRowDef="parcelTableHeaders"></tr>
+                            <tr mat-row *matRowDef="let row; columns: parcelTableHeaders"></tr>
+                        </table>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+
+</div>
